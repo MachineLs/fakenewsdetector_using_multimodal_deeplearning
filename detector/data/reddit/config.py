@@ -29,10 +29,10 @@ class RedditConfig(Config):
     test_text_path = data_path + 'vaildation_data.csv'
 
     # change the batch size to fit your device
-    batch_size = 128
-    # batch_size = 32
+    # batch_size = 128
+    batch_size = 32
     # epochs = 100 epochs, 
-    epochs = 20
+    epochs = 10
     # be careful, magic
     num_workers = 0
 

@@ -159,7 +159,7 @@ def supervised_train(config, train_loader, validation_loader, trial=None):
 
     if checkpoint_saving:
         model = FakeNewsModel(config).to(config.device)
-        model.load_state_dict(torch.load(checkpoint_path))
+        model.load_state_dict(torch.load(checkpoint_path, map_location="cpu"))
         model.eval()
         with torch.no_grad():
             validation_loss, validation_truth, validation_pred = validation_epoch(config, model, validation_loader)
