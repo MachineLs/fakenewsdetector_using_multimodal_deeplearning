@@ -4,8 +4,7 @@ from lime_main import lime_main
 from optuna_main import optuna_main
 from test_main import test_main
 from torch_main import torch_main
-from data.twitter.config import TwitterConfig
-from data.weibo.config import WeiboConfig
+from data.reddit.config import RedditConfig
 from torch.utils.tensorboard import SummaryWriter
 
 from utils import make_directory
@@ -26,10 +25,8 @@ if __name__ == '__main__':
 
     args = parser.parse_args()
 
-    if args.data == 'twitter':
-        config = TwitterConfig()
-    elif args.data == 'weibo':
-        config = WeiboConfig()
+    if args.data == 'reddit':
+        config = RedditConfig()
     else:
         raise Exception('Enter a valid dataset name', args.data)
 

@@ -198,6 +198,8 @@ def supervised_train(config, train_loader, validation_loader, trial=None):
         del scalar
         del model
         del params
+        gc.collect()
+        torch.cuda.empty_cache
     except:
         print('Error in deleting caches')
         pass

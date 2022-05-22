@@ -1,26 +1,26 @@
 import torch
 
 from data.config import Config
-from data.twitter.data_loader import TwitterDatasetLoader
+from data.reddit.data_loader import TwitterDatasetLoader
 
 
-class TwitterConfig(Config):
-    name = 'twitter'
+class RedditConfig(Config):
+    name = 'reddit'
     DatasetLoader = TwitterDatasetLoader
     # change your local path here
-    data_path = 'E:/UB2022Spring/CSE676/projcet/'
+    data_path = './'
     # data_path = '../../../../../media/external_3TB/3TB/ghorbanpoor/twitter/'
     # data_path = '/home/faeze/PycharmProjects/fake_news_detection/data/twitter/'
     
     # output_path = '../../../../../media/external_10TB/10TB/ghorbanpoor/'
     # useless output path
-    output_path = 'E:/UB2022Spring/CSE676/projcet/output/'
+    output_path = './output'
 
     
     # image direction, be careful
-    train_image_path = data_path + 'data/'
-    validation_image_path = data_path + 'data/'
-    test_image_path = data_path + 'data/'
+    train_image_path = data_path + 'images/'
+    validation_image_path = data_path + 'images/'
+    test_image_path = data_path + 'images/'
 
     # csv path, local file path, the relation between text and image
     # csv have three features, text, image, label. image is the file name with suffix. label 1/0.
@@ -28,9 +28,11 @@ class TwitterConfig(Config):
     validation_text_path = data_path + 'test_data.csv'
     test_text_path = data_path + 'vaildation_data.csv'
 
+    # change the batch size to fit your device
     batch_size = 128
+    # batch_size = 32
     # epochs = 100 epochs, 
-    epochs = 10
+    epochs = 20
     # be careful, magic
     num_workers = 0
 
@@ -44,7 +46,8 @@ class TwitterConfig(Config):
     attention_weight_decay = 0.001
     classification_weight_decay = 0.001
 
-    device = torch.device("cuda:1" if torch.cuda.is_available() else "cpu")
+    # depends on your device
+    device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
 
     #image_model_name = '../../../../../media/external_10TB/10TB/ghorbanpoor/vit-base-patch16-224'
     image_model_name = 'google/vit-base-patch16-224'
