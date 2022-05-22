@@ -40,8 +40,16 @@ python .\training_data_generator.py --source multimodal_test_public.tsv --train 
 
 
 ### Step 3 Model Training
-Finish previous step, we get two parts of data, one is the images in the images directory, the ohter is the  
-Run the 
+>* **Make sure you have CUDA enviroment, if you don't have CUDA, the program will run with CPU which is very slow**
+>* **CUDA enviroment instruction can be find in Google**
+
+Finish previous step, we get two parts of data, one is the images in the images directory, the ohter is the csv files in current directory.
+The path we used is the relative path, you can also change the path in our config.py files in the program.
+The main.py has lots of run parameters, most of parameters have default value to make sure the project is runable. The data paremeter is required!
+Run the model training in current directory.
 ```
-python main.py --data "twitter"
+python ./detector/main.py --data "reddit"
 ```
+>* **Model training will have continuous console output, This process is time-consuming (depending on the parameters you set)**
+
+After we running it, we will get the results in the None/ directory. We have numerical output and some Charts.
