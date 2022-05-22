@@ -1,9 +1,3 @@
-# Fake News Revealer
-
-Official implementation of the "Fake News Revealer (FNR): A Similarity and Transformer-Based Approach to Detect 
-Multi-Modal Fake News in Social Media" paper [(ArXiv Link)](https://arxiv.org/pdf/2112.01131.pdf).
-
-
 ## Requirments
 FNR is built in Python 3.6 using PyTorch 1.8. Please use the following command to install the requirements:
 
@@ -33,9 +27,7 @@ In the test step, at first, make sure to have the requested 'checkpoint' file th
 python main --data "DATA NAME" --just_test "REQUESTED TRIAL NUMBER"
 ```
 
-## Bibtex
-Cite our paper using the following bibtex item:
-
+## Reference
 ```
 @misc{ghorbanpour2021fnr,
       title={FNR: A Similarity and Transformer-Based Approach to Detect Multi-Modal Fake News in Social Media}, 
