@@ -31,7 +31,7 @@ for index, row in df.iterrows():
   if row["hasImage"] == True and row["image_url"] != "" and row["image_url"] != "nan":
     image_url = row["image_url"]
     try:
-      urllib.request.urlretrieve(image_url, filename= row["id"] + ".jpg")
+      urllib.request.urlretrieve(image_url, filename= f"./{test_path}/{row['id']}.jpg")
     except HTTPError:
       no_images_urls.append(row['image_url'])
       no_images += 1
