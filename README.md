@@ -8,24 +8,39 @@ Using concatenated features from text and images, appling a classifier to predic
 
 ## Quick start instruction
 
-### Step 1 Data gathering and generating
-The file "multimodal_test_public.tsv" is a labeled original data set from reddit. It's a data set from other relevant project.
+### Step 1 Download Images
+The file **"multimodal_test_public.tsv"** is a labeled original data set from reddit.(The file is already in this repository) It's a data set from other relevant project.
 We should preprocess it before we training the model.
 The text data is already in the csv file. The images is url format in the column "image_url". So we need download it first and named it by the id.
+
 The image data should download by the python script.
+This script have two main arugments, **source** and **rowcount**.
+
+>* **source** is the data source path
+>* **rowcount** is the number of record in the tsv file you want to download.
+```
+python image_downloader.py --source multimodal_test_public.tsv --rowcount 20
+```
+### Step 2 Data Processing
+Then, we need run another script to generate the training data, test data and valiation data.
+
+This script have 4 main arugments, **source**, **train**, **test** and **vaildation**.
+After run this scripte, we get three csv data set.
+
+>* **source** is the data source path
+>* **train** is the training data percent in total data set
+>* **test** is the test data percent in total data set
+>* **vaildation** is the vaildation data percent in total data set
 
 ```
-python ./image_downloader.py
+python .\training_data_generator.py --source multimodal_test_public.tsv --train 0.8 --test 0.2
 ```
+>* **Make sure you have already download the images and stored in the "./data" directory before you grenerate the training data.**
 
-Then, we need run the 
-```
-python ./training_data_generator.py
-```
-script to generate the data sets. Make sure you have already download the images and stored in the "./data" directory before you grenerate the training data.
 
-## Model Training
 
+### Step 3 Model Training
+Finish previous step, we get two parts of data, one is the images in the images directory, the ohter is the  
 Run the 
 ```
 python main.py --data "twitter"
